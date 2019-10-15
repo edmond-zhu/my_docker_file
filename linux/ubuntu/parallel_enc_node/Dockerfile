@@ -17,10 +17,17 @@ RUN groupadd --gid 1000 ${APP_USER} && \
 
 # install tools and clean-up
 RUN apt-get update && \
-    apt-get install -q -y git wget net-tools curl vim python-pip ffmpeg
+    apt-get install -q -y git wget net-tools curl vim python-pip cmake make ffmpeg mkvtoolnix yasm
 RUN apt-get clean
 
 #install celery
 RUN pip install virtualenv
 RUN mkdir celery && virtualenv celery
 RUN pip install celery
+
+# build aom for encoder
+RUN git clone https://github.com/edmond-zhu/aom.git && cd /aom/build && mkdir linux && cd linux && cmake ../../ && make
+
+# Define default command
+ADD init.sh /init.sh
+CMD ["/init.sh"]
