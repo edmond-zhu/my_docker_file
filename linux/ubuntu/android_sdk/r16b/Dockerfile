@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 LABEL maintainer "jwduck (e_matthews1@126.com)"
 
 ENV ANDROID_NDK_HOME /opt/android-ndk
-ENV ANDROID_NDK_VERSION r10e
+ENV ANDROID_NDK_VERSION r16b
 
 
 # ------------------------------------------------------
