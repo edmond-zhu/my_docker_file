@@ -7,10 +7,10 @@ RUN C:\BuildTools\7z1900-x64.exe /S /D="C:\7z"
 #RUN DEL C:\BuildTools\7z1900-x64.exe
 
 # download CMake and unzip package
-ADD https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4-win64-x64.zip C:/BuildTools/cmake-win64-x64.zip
+ADD https://github.com/Kitware/CMake/releases/download/v3.14.2/cmake-3.14.2-win64-x64.zip C:/BuildTools/cmake-win64-x64.zip
 RUN MD C:\cmake
 RUN C:\7z\7z.exe x -oC:\cmake C:/BuildTools/cmake-win64-x64.zip
-RUN setx -m PATH "%PATH%;C:\cmake\cmake-3.15.4-win64-x64\bin"
+RUN setx -m PATH "%PATH%;C:\cmake\cmake-3.14.2-win64-x64\bin"
 #RUN DEL C:\BuildTools\cmake-win64-x64.zip
 
 # download YASM
