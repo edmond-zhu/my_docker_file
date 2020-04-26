@@ -1,5 +1,5 @@
 ARG UBUNTU_VER=latest
-FROM ubuntu:${UBUNTU_VER}
+FROM i386/ubuntu:${UBUNTU_VER}
 
 LABEL maintainer "jwduck (e_matthews1@126.com)"
 
@@ -17,7 +17,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update -qq && \
     apt-get install -q -y \
         ca-certificates \
-        clang-format \
+        clang-format-5.0 \
         cmake \
         curl \
         dos2unix \
