@@ -9,7 +9,7 @@ ENV ANDROID_NDK_VERSION r12b
 # --- Install required tools
 
 RUN apt-get update -qq && \
-    apt-get install -q -y wget unzip && \
+    apt-get install -q -y wget unzip make file && \
     apt-get clean
 
 

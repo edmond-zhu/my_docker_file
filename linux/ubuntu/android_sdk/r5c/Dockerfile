@@ -9,7 +9,7 @@ ENV ANDROID_NDK_VERSION r5c
 # --- Install required tools
 
 RUN apt-get update -qq && \
-    apt-get install -q -y wget unzip && \
+    apt-get install -q -y wget unzip make file && \
     apt-get clean
 
 
