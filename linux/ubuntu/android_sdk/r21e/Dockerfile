@@ -1,9 +1,15 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 LABEL maintainer "jwduck (e_matthews1@126.com)"
 
 ENV ANDROID_NDK_HOME /opt/android-ndk
-ENV ANDROID_NDK_VERSION r21c
+ENV ANDROID_NDK_VERSION r21e
 
+ENV LC_ALL=C.UTF-8 \
+    LANG=C.UTF-8 \
+    LANGUAGE=C.UTF-8 \
+    TZ=UTC
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # ------------------------------------------------------
 # --- Install required tools
@@ -29,7 +35,7 @@ RUN mkdir /opt/android-ndk-tmp && \
     rm -rf /opt/android-ndk-tmp
 
 # add to PATH
-ENV PATH ${PATH}:${ANDROID_NDK_HOME}
+ENV PATH ${PATH}:${ANDROID_NDK_HOME}:${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/linux-x86_64/bin
 
 
 # ------------------------------------------------------
